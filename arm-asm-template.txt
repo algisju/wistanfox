@@ -1,0 +1,49 @@
+// This file implements the following C functions for the ARM platform.
+// Both ARM6 and ARM7 devices are supported by this implementation.
+//
+// maxvid_decode_c4_sample16()
+
+#if defined(__arm__)
+# define COMPILE_ARM 1
+# if defined(__thumb__)
+#  define COMPILE_ARM_THUMB_ASM 1
+# else
+#  define COMPILE_ARM_ASM 1
+# endif
+#endif
+
+#if defined(COMPILE_ARM)
+# define USE_GENERATED_ARM_ASM 1
+#endif // COMPILE_ARM
+
+#if defined(USE_GENERATED_ARM_ASM)
+    .section __TEXT,__text,regular
+    .section __TEXT,__textcoal_nt,coalesced
+    .section __TEXT,__const_coal,coalesced
+    .section __TEXT,__picsymbolstub4,symbol_stubs,none,16
+    .text
+    .align 2
+    .globl _maxvid_decode_c4_sample16
+    .private_extern _maxvid_decode_c4_sample16
+_maxvid_decode_c4_sample16:
+    @ args = 0, pretend = 0, frame = 0
+    @ frame_needed = 1, uses_anonymous_args = 0
+    stmfd   sp!, {r4, r5, r6, r7, lr}
+    add r7, sp, #12
+    stmfd   sp!, {r8, r10, r11}
+
+    (ASM CODE HERE)
+
+    ldmfd   sp!, {r8, r10, r11}
+    ldmfd   sp!, {r4, r5, r6, r7, pc}
+    .subsections_via_symbols
+
+#else
+  // No-op when USE_GENERATED_ARM_ASM is not defined
+#endif
+
+
+/////////////////////////////////////////////////////////////////
+//With Xcode 4.5 (clang 4) you now need to include the -no-integrated-as command line argument 
+//for this inline AT&T inline asm to work. 
+//Add it to the .s target "Target" -> "Build Phases"
