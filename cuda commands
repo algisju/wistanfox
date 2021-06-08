@@ -1,7 +1,0 @@
-sudo nvidia-smi -pm ENABLED -i 0 ---------> set permanent mode
-nvidia-smi  -q -i 0 -d SUPPORTED_CLOCKS --> check supported clocks
-sudo nvidia-smi -ac 3004,875 -i 0 --------> set the application clocks not supported GTX765M
-
-sudo nvidia-smi  -rac -i 0      ----------> reset the appplication clock
-
-sudo nvidia-smi --auto-boost-default=ENABLED -i 0    --> Autoboost not supported GTX765M
