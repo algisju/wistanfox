@@ -1,3 +1,0 @@
-1. Fixed the problem that the URL filtering function does not take effect on the HTTPS domain name
-2. Add support for Simplified Chinese, Traditional, Vietnamese, English, Russian Adaptive
-3. Optimize wireless performance
