@@ -1,0 +1,28 @@
+print ('\n\n\n\n       HANOI TOWERS');print('\n\n   |   \n  +|+  \n ++|++ \n+++|+++\n------- ------- -------\n   1       2       3')
+
+
+plate(value, currentpos)=(1,1)
+if plate.dest.columntop > plate.value 
+column(adress,lastplate)=(1,2)
+
+array start plates
+	{0,0},
+	{1,1},
+	{2,1},
+	{3,1};
+
+array start column
+	{1,plates[1]}
+	{2,plates[0]}
+	{3,plates[0]}
+
+moveplate(column.source,column.dest)
+checkmove => column.dest.lasteplate.value > column.source.lastplate.value 
+if source.col.lastplate = plate[0] => error
+if dest.col.lastplate < source.col.lastplate => error
+
+port print values
+a=1
+b=0
+c=0
+
